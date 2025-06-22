@@ -1,0 +1,23 @@
+@use '../utils/mixins';
+@use '../utils/variables' as v;
+
+
+nav {
+    width: 100%;
+    padding-right: 30px;
+
+    ul {
+        display: flex;
+        justify-content: space-around;
+
+        li {
+            color: v.$white;
+            font-size: 18px;
+            font-weight: 500;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}

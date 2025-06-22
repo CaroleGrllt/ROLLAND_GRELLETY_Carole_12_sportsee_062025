@@ -1,14 +1,21 @@
-// import { useState } from 'react'
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Layout from './layouts/layout.jsx'
+import Home from './pages/Home';
 
 
-export default function App () {
+
+
+export default function App() {
   const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <UNDEFINED_YET />,
-  }
-])
+		{
+			path: '/',
+			element: <Layout />,
+      children: [
+        {path: '', element: <Home/>}
+      ]
+		}
+	]);
 
-return <RouterProvider router={router} />;
+	return <RouterProvider router={router} />;
 }
+

@@ -1,0 +1,39 @@
+@use '../utils/mixins';
+@use '../utils/variables' as v;
+
+article {
+    background-color: v.$lightgrey;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+
+    img {
+        width: 16px;
+        padding: 20px;
+        border-radius: 6px;
+
+        &.Calories {
+            background-color: v.$bgred;
+        }
+
+        &.Proteines {
+            background-color: v.$bgblue;
+        }
+
+        &.Glucides {
+            background-color: v.$bgyellow;
+        }
+
+        &.Lipides {
+            background-color: v.$bgpink;
+        }
+    }
+    .data__container {
+        display: flex;
+        flex-direction: column;
+        margin-left: 25px;
+        height: 100%;
+        justify-content: center;
+    }
+}

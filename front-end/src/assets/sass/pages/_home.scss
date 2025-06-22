@@ -1,0 +1,16 @@
+@use '../utils/mixins';
+@use '../utils/variables' as v;
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-content: space-between;
+    width: 100%;
+
+    .charts__container {}
+
+    .infos__container {
+        display: grid;
+        gap: 40px;
+    }
+}
