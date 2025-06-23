@@ -1,16 +1,121 @@
 @use '../utils/mixins';
 @use '../utils/variables' as v;
 
+.greetings {
+    grid-row: 1 / 2;
+    margin-bottom: 30px;
+
+    h1 {
+        margin: 0;
+        font-weight: 500;
+        margin-bottom: 20px;
+
+        .user__name {
+            color: v.$red;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
 .dashboard {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+    grid-row: 2 / 3;
+    grid-template-columns: 4fr 1fr;
     justify-content: space-between;
-    width: 100%;
 
-    .charts__container {}
+    .charts__container {
+        display: grid;
+        gap: 15px;
+
+        .barchart__container {
+            background-color: v.$lightgrey;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            padding: 15px 20px;
+            height: fit-content;
+
+            .chart__infos {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 30px;
+
+                .chart__title {
+                    span {
+                        font-size: 12px;
+                        font-weight: 500;
+                    }
+                }
+
+                .chart__legend {
+                    display: flex;
+                    gap: 10px;
+
+                    .weight {
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+
+                        .weight__color {
+                            width: 6px;
+                            height: 6px;
+                            background-color: v.$darkgrey;
+                            border-radius: 100%;
+                        }
+
+                        span {
+                            color: v.$grey;
+                            font-weight: 500;
+                            font-size: 12px;
+                        }
+                    }
+
+                    .energy {
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+
+                        .energy__color {
+                            width: 6px;
+                            height: 6px;
+                            background-color: v.$red;
+                            border-radius: 100%;
+                        }
+
+                        span {
+                            color: v.$grey;
+                            font-weight: 500;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .metricscharts__container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+
+
+
+            .line__chart {
+                background-color: v.$red;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        }
+    }
 
     .infos__container {
         display: grid;
-        gap: 40px;
+        align-content: space-between;
+        width: fit-content;
+        min-width: 225px;
     }
 }

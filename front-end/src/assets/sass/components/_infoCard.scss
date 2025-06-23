@@ -35,5 +35,17 @@ article {
         margin-left: 25px;
         height: 100%;
         justify-content: center;
+
+        .data__unit {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .data__name {
+            font-size: 14px;
+            color: v.$grey;
+            font-weight: 500;
+        }
     }
 }

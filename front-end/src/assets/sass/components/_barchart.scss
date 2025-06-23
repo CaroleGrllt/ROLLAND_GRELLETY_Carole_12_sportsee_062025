@@ -1,0 +1,22 @@
+@use '../utils/mixins';
+@use '../utils/variables' as v;
+
+
+
+    .popup {
+        position: relative;
+        bottom: 60px;
+        left: 5px;
+        width: 40px;
+        height: 65px;
+        background-color: v.$red;
+        color: v.$white;
+        font-size: 10px;
+        font-weight: 500;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+

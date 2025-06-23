@@ -3,7 +3,85 @@ import Energy from "../assets/img/energy.svg"
 import Chicken from "../assets/img/chicken.svg"
 import Apple from "../assets/img/apple.svg"
 import Burger from "../assets/img/burger.svg"
+import BarGraph from "../components/barchart"
+import LineGraph from "../components/linechart"
 
+
+const data = [
+  {
+    name: '1',
+    kg: 68,
+    kCal: 71,
+    
+  },
+  {
+    name: '2',
+    kg: 69,
+    kCal: 70,
+    
+  },
+  {
+    name: '3',
+    kg: 68,
+    kCal: 72,
+    
+  },
+  {
+    name: '4',
+    kg: 68,
+    kCal: 69,
+    
+  },
+  {
+    name: '5',
+    kg: 68,
+    kCal: 71,
+    
+  },
+  {
+    name: '6',
+    kg: 69,
+    kCal: 68,
+   
+  },
+  {
+    name: '7',
+    kg: 68,
+    kCal: 72,
+    
+  },
+];
+
+const sessions = [
+	{
+		name: 'L',
+		sessionLength: 30,
+	},
+	{
+		name: 'M',
+		sessionLength: 23,
+	},
+	{
+		name: 'M',
+		sessionLength: 45,
+	},
+	{
+		name: 'J',
+		sessionLength: 50,
+	},
+	{
+		name: 'V',
+		sessionLength: 0,
+	},
+	{
+		name: 'S',
+		sessionLength: 0,
+	},
+	{
+		name: 'D',
+		sessionLength: 60,
+	},
+];
 
 export default function Home () {
     return (
@@ -14,7 +92,34 @@ export default function Home () {
             </section>
             <section className="dashboard">
                 <div className="charts__container">
-                    <p>Ici apparaîtront un jour des charts</p>
+                    <div className="barchart__container">
+                        <div className="chart__infos">
+                            <div className="chart__title">
+                                <span>Activité quotidienne</span>
+                            </div>
+                            <div className="chart__legend">
+                                <div className="weight">
+                                    <div className="weight__color"></div>
+                                    <span className="weight__legend">Poids (kg)</span>
+                                </div>
+                                <div className="energy">
+                                    <div className="energy__color"></div>
+                                    <span className="energy__legend">Calories brûlées (kCal)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="chart__content">
+                            <BarGraph data={data} />
+                        </div>
+                    </div>
+                    <div className="metricscharts__container">
+                        <div className="line__chart">
+                            <span>Durée moyenne des sessions</span>
+                            <LineGraph data={sessions}/>
+                        </div>
+                        <div className="radar__chart"></div>
+                        <div className="radial__chart"></div>
+                    </div>
                 </div>
                 <div className="infos__container">
                     <InfoCard 

@@ -4,11 +4,11 @@
 
 nav {
     width: 100%;
-    padding-right: 30px;
+    margin: 0 90px;
 
     ul {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
 
         li {
             color: v.$white;
