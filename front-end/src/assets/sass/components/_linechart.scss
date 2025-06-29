@@ -1,3 +1,29 @@
 @use '../utils/mixins';
 @use '../utils/variables' as v;
 
+    .line__chart {
+        background-color: v.$red;
+        display: flex;
+        flex-direction: column;
+
+        span {
+            position: absolute;
+            top: 20px;
+            left: 15px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #fd8c8c;
+            line-height: 1.5;
+        }
+
+        .recharts-responsive-container {
+            flex: 1; 
+
+            .custom-tooltip {
+                p {
+                    margin: 0;
+                    font-size: 12px;
+                }
+            }
+        }
+    }

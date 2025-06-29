@@ -54,7 +54,7 @@ export default function BarGraph ({data}) {
                 }}
                 tickMargin={10}
                 interval={0}
-                domain={[67, 73]}
+                domain={[0, 500]}
             />
             <Tooltip content={<CustomTooltip />} />
 

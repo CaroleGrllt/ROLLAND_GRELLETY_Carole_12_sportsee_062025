@@ -3,6 +3,9 @@
 @use './components/navbar';
 @use './components/infoCard';
 @use './components/barchart';
+@use './components/linechart';
+@use './components/radarchart';
+@use './components/radialbarchart';
 @use './layout/body';
 @use './layout/header';
 @use './layout/aside';

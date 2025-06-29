@@ -1,0 +1,10 @@
+@use '../utils/mixins';
+@use '../utils/variables' as v;
+
+.radial__chart {
+        background-color: v.$lightgrey;
+
+        .recharts-layer.recharts-customized-wrapper {
+            background-color: v.$white;
+        }
+}

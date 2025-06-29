@@ -1,0 +1,7 @@
+@use '../utils/mixins';
+@use '../utils/variables' as v;
+
+
+.radar__chart {
+    background-color: v.$darkgrey;
+}

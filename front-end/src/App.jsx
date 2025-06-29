@@ -1,18 +1,41 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import Layout from './layouts/layout.jsx'
 import Home from './pages/Home';
 
 
-
+function NavigateTo() {
+	const userId = '12';
+	return (
+		<Navigate
+			to={`/user/${userId}`}
+			replace
+		/>
+	);
+}
 
 export default function App() {
   const router = createBrowserRouter([
 		{
 			path: '/',
 			element: <Layout />,
-      children: [
-        {path: '', element: <Home/>}
-      ]
+			children: [
+						{
+							index: true,
+							element: <NavigateTo />,
+						},
+						{
+							path: '/user',
+							element: <NavigateTo />,
+						},
+						{
+							path: '/user/:id',
+							element: <Home />,
+						},
+						{
+							path: '*',
+							element: <NavigateTo />,
+						},
+				]
 		}
 	]);
 

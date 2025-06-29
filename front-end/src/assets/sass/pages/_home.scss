@@ -101,14 +101,15 @@
             grid-template-columns: 1fr 1fr 1fr;
             gap: 10px;
 
-
-
-            .line__chart {
-                background-color: v.$red;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
+            > * {
+                aspect-ratio: 1 / 1;
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+                position: relative;
             }
+
+
         }
     }
 
