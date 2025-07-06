@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import DataUser from "../utils/model"
 import { getFirstName, getTodayScore, getKeyData, getActivity, getSessions, getPerformance } from "../utils/controller"
@@ -15,21 +16,36 @@ import RadialBarGraph from "../components/radialbarchart"
 export default function Home () {
 
     const params = useParams()
-    // console.log(params)
     const userId = parseInt(params.id)
-    // console.log(typeof userId)
 
-    const user = new DataUser(userId)
-    // console.log(user)
+    //changer commentaire de la variable env pour changer d'environnement : developpement ou production
+    const env = 'prod' // on choisit qu'on est en prod => call API
+    // const env = 'dev' // on choisit qu'on est en dev => call données mockées
+
+    const [user, setUser] = useState(null)
+    console.log(user)
+
+    useEffect(() => {
+        async function fetchData() {
+        const userInfo = new DataUser(userId, env)
+        await userInfo.getData()
+        setUser(userInfo)
+        }
+
+        fetchData()
+    }, [userId])
+
+    if (!user) { // corrige bug chargement donnée (user = null au chargement page => aucune donnée envoyée au controller)
+        return 
+    }
+    
     const firstName = getFirstName(user)
+    console.log(firstName)
     const score = getTodayScore(user)
-    // console.log(score)
     const keyData = getKeyData(user)
     const activity = getActivity(user)
-    // console.log(activity)
     const sessions = getSessions(user)
     const performance = getPerformance(user)
-    console.log(performance)
 
     return (
         <>

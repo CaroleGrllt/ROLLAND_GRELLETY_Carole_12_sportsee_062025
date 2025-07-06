@@ -30,6 +30,7 @@ export default function App() {
 						{
 							path: '/user/:id',
 							element: <Home />,
+							errorElement: <NavigateTo />
 						},
 						{
 							path: '*',
