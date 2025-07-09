@@ -4,4 +4,15 @@
 
 .radar__chart {
     background-color: v.$darkgrey;
+    text {
+        font-size: 9px;
+
+        @include mixins.xl {
+            font-size: 9.5px;
+        }
+
+        @include mixins.xxl {
+            font-size: 10px;
+        }
+    }
 }

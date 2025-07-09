@@ -5,10 +5,12 @@ export default function RadarGraph ({ data }) {
 		<ResponsiveContainer
 			width='100%'
 			height='100%'
+			
 		>
 			<RadarChart
 				data={data}
-				margin={{ top: 0, right: 35, bottom: 0, left: 35 }}
+				margin={{ top: 0, right: 51, bottom: 0, left: 51 }}
+				outerRadius='110%'
 			>
 				<PolarGrid radialLines={false} />
 				<PolarAngleAxis

@@ -3,8 +3,47 @@
 
 .radial__chart {
         background-color: v.$lightgrey;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-        .recharts-layer.recharts-customized-wrapper {
-            background-color: v.$white;
+        span {
+            font-size: 12px;
+            font-weight: 500;
+            color: v.$darkgrey;
+            position: absolute;
+            left: 20px;
+            top: 15px;
+
+            @include mixins.xl {
+                font-size: 14px;
+            }
+
+            @include mixins.xxl {
+                font-size: 16px;
+                left: 30px;
+                top: 20px;
+            }
         }
+
+        .radial__chart__container {
+            height: 170px;
+            width: 170px;
+
+            @include mixins.xl {
+            height: 200px;
+            width: 190px;
+            }
+
+            @include mixins.xxl {
+            height: 300px;
+            width: 260px;
+            }
+        }
+
 }

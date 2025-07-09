@@ -1,20 +1,16 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import DataUser from "../utils/model"
-import { getFirstName, getTodayScore, getKeyData, getActivity, getSessions, getPerformance } from "../utils/controller"
+import { getFirstName, getKeyData, getActivity } from "../utils/controller"
 import InfoCard from "../components/infoCard"
 import Energy from "../assets/img/energy.svg"
 import Chicken from "../assets/img/chicken.svg"
 import Apple from "../assets/img/apple.svg"
 import Burger from "../assets/img/burger.svg"
 import BarGraph from "../components/barchart"
-import LineGraph from "../components/linechart"
-import RadarGraph from "../components/radarchart"
-import RadialBarGraph from "../components/radialbarchart"
 
 
-export default function Home () {
-
+export default function Performance () {
     const params = useParams()
     const userId = parseInt(params.id)
 
@@ -23,6 +19,7 @@ export default function Home () {
     // const env = 'dev' // on choisit qu'on est en dev => call données mockées
 
     const [user, setUser] = useState(null)
+    console.log(user)
 
     useEffect(() => {
         async function fetchData() {
@@ -35,14 +32,10 @@ export default function Home () {
     }, [userId])
 
     if (!user) return  // corrige bug chargement données (user = null au chargement page => aucune donnée envoyée au controller)
-    
-    
+
     const firstName = getFirstName(user)
-    const score = getTodayScore(user)
     const keyData = getKeyData(user)
     const activity = getActivity(user)
-    const sessions = getSessions(user)
-    const performance = getPerformance(user)
 
     return (
         <>
@@ -72,23 +65,8 @@ export default function Home () {
                             <BarGraph data={activity} />
                         </div>
                     </div>
-                    <div className="metricscharts__container">
-                        <div className="line__chart">
-                            <span>Durée moyenne des sessions</span>
-                            <LineGraph data={sessions}/>
-                        </div>
-                        <div className="radar__chart">
-                            <RadarGraph data={performance} />
-                        </div>
-                        <div className="radial__chart">
-                            <span>Score</span>
-                            <div className="radial__chart__container">
-                                <RadialBarGraph data={score} /> 
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div className="infos__container">
+                                <div className="infos__container">
                     <InfoCard 
                         icon={Energy}
                         data={keyData.calorieCount}

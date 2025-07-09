@@ -5,7 +5,8 @@
         background-color: v.$red;
         display: flex;
         flex-direction: column;
-
+        position: relative;
+        
         span {
             position: absolute;
             top: 20px;
@@ -14,6 +15,14 @@
             font-weight: 500;
             color: #fd8c8c;
             line-height: 1.5;
+
+            @include mixins.xl {
+                font-size: 15px;
+            }
+
+            @include mixins.xxl {
+                font-size: 16px;
+            }
         }
 
         .recharts-responsive-container {

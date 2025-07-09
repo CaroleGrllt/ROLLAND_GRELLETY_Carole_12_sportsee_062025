@@ -24,36 +24,56 @@ export default function RadialBarGraph ({ data }) {
 				startAngle={startAngle}
 				endAngle={startAngle - (value * 360) / 100}
 				data={object}
+				
 			>
 				<RadialBar
 					dataKey='uv'
-					cornerRadius={5}
+					cornerRadius={50}
 				/>
+
 				<Customized
-					component={() => (
-						<>
-							<text
-								x='50%'
-								y='43%'
-								textAnchor='middle'
-								fontSize='18'
-								fontWeight='bold'
-							>
-								{value}%
-							</text>
-							<text
-								x='50%'
-								y='57%'
-								textAnchor='middle'
-								fontSize='12'
-								fill='grey'
-								fontWeight='normal'
-							>
-								de votre objectif
-							</text>
-						</>
-					)}
-				/>
+					component={({ width, height }) => {
+						if (!width || !height) return null;
+
+						const centerX = width / 2;
+						const centerY = height / 2;
+						const radius = '33%'
+
+						const titleFontSize = Math.min(width, height) * 0.1;
+						const subtitleFontSize = Math.min(width, height) * 0.06; // 4.5%
+
+						return (
+							<>
+								{/* FOND BLANC ROND */}
+								<circle
+									cx={centerX}
+									cy={centerY}
+									r={radius}
+									fill="white"
+								/>
+								{/* TEXTE */}
+								<text
+									x={centerX}
+									y={centerY - 5}
+									textAnchor="middle"
+									fontSize={titleFontSize}
+									fontWeight="bold"
+								>
+									{value}%
+								</text>
+								<text
+									x={centerX}
+									y={centerY + 15}
+									textAnchor="middle"
+									fontSize={subtitleFontSize}
+									fill="grey"
+								>
+									de votre objectif
+								</text>
+							</>
+						);
+					}}
+				/>			
 			</RadialBarChart>
 		</ResponsiveContainer>
 	);
