@@ -1,9 +1,6 @@
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import Layout from './layouts/layout.jsx'
 import Home from './pages/Home';
-import Activity from './pages/activity';
-import Average from './pages/average';
-import Performance from './pages/performance';
 
 
 function NavigateTo() {
@@ -33,21 +30,6 @@ export default function App() {
 						{
 							path: '/user/:id',
 							element: <Home />,
-							errorElement: <NavigateTo />
-						},
-						{
-							path: '/user/:id/activity',
-							element: <Activity />,
-							errorElement: <NavigateTo />
-						},
-						{
-							path: '/user/:id/average-sessions',
-							element: <Average />,
-							errorElement: <NavigateTo />
-						},
-						{
-							path: '/user/:id/performance',
-							element: <Performance />,
 							errorElement: <NavigateTo />
 						},
 						{

@@ -24,6 +24,8 @@ export default class DataUser {
             axios.get(`http://localhost:3000/user/${this.id}/performance`)
           ])
 
+          console.log('origine des données : API')
+
           this.mainData = userMain.data.data
           this.activity = userActivity.data.data
           this.averageSessions = userSessions.data.data
@@ -32,8 +34,10 @@ export default class DataUser {
           console.log("Erreur lors de la récupération des données depuis l'API :", error)
         }
       } else {
+        
+        console.log('origine des données données : mock')
+
         this.mainData = MOCKED_USER_MAIN_DATA.find(user => user.id === this.id)
-        console.log(this.mainData)
         this.activity = MOCKED_USER_ACTIVITY.find(user => user.userId === this.id)
         this.averageSessions = MOCKED_USER_AVERAGE_SESSIONS.find(user => user.userId === this.id)
         this.performance = MOCKED_USER_PERFORMANCE.find(user => user.userId === this.id)
