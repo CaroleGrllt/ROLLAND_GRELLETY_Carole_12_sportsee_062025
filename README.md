@@ -30,9 +30,9 @@ Merci de vous rendre sur le ReadMe du back-end ou [ICI](https://github.com/Carol
 Pour lancer l'application en mode développement, exécutez la commande suivante : 
 `npm run dev`
 
-> A noter : l'application est déployée. Le front-end est sur GitHub Pages. Le back-end est disponible à cette adresse :<br/>`https://rolland-grellety-carole-12-sportsee.onrender.com` <br/> Les utilisateurs utilisables ont les id 12 et 18.
+> A noter : l'application est déployée. Le front-end est sur GitHub Pages. Le back-end est disponible à cette adresse :<br/>`https://rolland-grellety-carole-12-sportsee.onrender.com` <br/> Les utilisateurs ont les id 12 et 18.
 
-Endpoints SportSee : <br/>
+Endpoints SportSee pour affichage des graphiques Recharts : <br/>
 ```
 .../user/12
 .../user/12/performance

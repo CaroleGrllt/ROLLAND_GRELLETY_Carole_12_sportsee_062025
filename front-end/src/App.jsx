@@ -38,7 +38,11 @@ export default function App() {
 						},
 				]
 		}
-	]);
+	],
+	{
+      basename: '/ROLLAND_GRELLETY_Carole_12_sportsee_062025',
+    }
+);
 
 	return <RouterProvider router={router} />;
 }
