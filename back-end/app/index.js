@@ -5,8 +5,8 @@ const router = require('./routes')
 
 const app = express()
 app.use(cors())
-const port = 3000
+const PORT = process.env.PORT || 3000;
 
 app.use(router)
 
-app.listen(port, () => console.log(`Magic happens on port ${port}`))
+app.listen(PORT, () => console.log(`Magic happens on port ${PORT}`))
