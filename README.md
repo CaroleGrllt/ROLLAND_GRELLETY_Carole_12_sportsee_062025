@@ -30,6 +30,16 @@ Merci de vous rendre sur le ReadMe du back-end ou [ICI](https://github.com/Carol
 Pour lancer l'application en mode développement, exécutez la commande suivante : 
 `npm run dev`
 
+> A noter : l'application est déployée. Le front-end est sur GitHub Pages. Le back-end est disponible à cette adresse :<br/>`https://rolland-grellety-carole-12-sportsee.onrender.com` <br/>
+
+Endpoints SportSee : <br/>
+```
+.../user/12
+.../user/12/performance
+.../user/12/activity
+.../user/12/average-sessions
+```
+
 ## Stack
 - **React** : Framework JavaScript pour la création d'interfaces utilisateur.
 - **Vite** : Outil de build rapide pour les applications React.

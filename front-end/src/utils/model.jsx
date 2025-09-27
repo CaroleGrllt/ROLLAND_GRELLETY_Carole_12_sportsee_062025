@@ -6,22 +6,28 @@ import {
   MOCKED_USER_PERFORMANCE
 } from '../data/mockedData'
 
+// Lit l'URL de l'API depuis les variables d'env Vite (.env.*)
+// Fallback local si non définie
+const API_URL = (import.meta.env.VITE_API_URL || 'http://localhost:3000').replace(/\/+$/, '')
 
+// Client axios avec baseURL (évite de répéter l’URL)
+const api = axios.create({ baseURL: API_URL })
 
 export default class DataUser {
   constructor(userId, env) {
     this.id = userId
-    this.environnement = env === 'prod' // true ou false. Si true => API. Si false => data mockées
-  }
+      // Utilise l'API si env === 'prod' OU si VITE_API_URL est définie (pratique en prod)
+      this.environnement = (env === 'prod') || Boolean(import.meta.env.VITE_API_URL)
+    }
 
   async getData() {
       if (this.environnement) {
         try {
           const [userMain, userActivity, userSessions, userPerf] = await Promise.all([
-            axios.get(`http://localhost:3000/user/${this.id}`),
-            axios.get(`http://localhost:3000/user/${this.id}/activity`),
-            axios.get(`http://localhost:3000/user/${this.id}/average-sessions`),
-            axios.get(`http://localhost:3000/user/${this.id}/performance`)
+            api.get(`/user/${this.id}`),
+            api.get(`/user/${this.id}/activity`),
+            api.get(`/user/${this.id}/average-sessions`),
+            api.get(`/user/${this.id}/performance`)
           ])
 
           console.log('origine des données : API')

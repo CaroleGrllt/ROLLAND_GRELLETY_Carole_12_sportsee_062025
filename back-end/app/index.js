@@ -20,7 +20,10 @@ const app = express();
 
 // (1) Proxy & middlewares
 app.set('trust proxy', 1);                 // utile derrière un reverse proxy (Render, Railway…)
-app.use(cors());                           // ouvre CORS (tu pourras restreindre plus tard)
+
+const allowed = ['https://carolegrllt.github.io', 'http://localhost:5173'];
+app.use(cors({ origin: allowed }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
