@@ -20,7 +20,7 @@ Suivez les étapes suivantes pour installer le projet localement :
 2. Aller dans le dossier où le projet est cloné\
 `cd nom-de-votre-dossier`
 
-Configuer le back-end
+3. Configuer le back-end<br/>
 Merci de vous rendre sur le ReadMe du back-end ou [ICI](https://github.com/CaroleGrllt/ROLLAND_GRELLETY_Carole_12_sportsee_062025/tree/main/back-end)
 
 4. Installer les dépendances du projet dans le dossier "frontend"\
